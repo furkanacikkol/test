@@ -3,7 +3,8 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  ".git/config": "920a11de313bfb8d93d81f4a3a5b71b6",
+  ".git/COMMIT_EDITMSG": "c73f57a771f98f41ea0cbfd364899fee",
+".git/config": "920a11de313bfb8d93d81f4a3a5b71b6",
 ".git/description": "a0a7c3fff21f2aea3cfa1d0316dd816c",
 ".git/HEAD": "4cf2d64e44205fe628ddd534e1151b58",
 ".git/hooks/applypatch-msg.sample": "ce562e08d8098926a3862fc6e7905199",
@@ -19,7 +20,19 @@ const RESOURCES = {
 ".git/hooks/prepare-commit-msg.sample": "2b5c047bdb474555e1787db32b2d2fc5",
 ".git/hooks/push-to-checkout.sample": "c7ab00c7784efeadad3ae9b228d4b4db",
 ".git/hooks/update.sample": "647ae13c682f7827c22f5fc08a03674e",
+".git/index": "94a6f9564f20762ca83f8cdaf44bc5dc",
 ".git/info/exclude": "036208b4a1ab4a235d75c181e685e5a3",
+".git/logs/HEAD": "d8da9bbfdd842fc68cf23fc5078d7fe8",
+".git/logs/refs/heads/master": "d8da9bbfdd842fc68cf23fc5078d7fe8",
+".git/objects/11/c6e8a00dbaaaa305d8d514353665639b2645c4": "412dfa46390671131cbf20f6a39fa794",
+".git/objects/20/5bb5db271c6d8de8399864c7bb9b917f638893": "c993b22f115d7f3ae6d5b7b212806539",
+".git/objects/72/aecb96fdb46ce0c7092bbcd17ef5a1a10f16b4": "48888b4a366e9ba63b168ac097bb3add",
+".git/objects/88/cfd48dff1169879ba46840804b412fe02fefd6": "e42aaae6a4cbfbc9f6326f1fa9e3380c",
+".git/objects/8a/aa46ac1ae21512746f852a42ba87e4165dfdd1": "1d8820d345e38b30de033aa4b5a23e7b",
+".git/objects/b7/49bfef07473333cf1dd31e9eed89862a5d52aa": "36b4020dca303986cad10924774fb5dc",
+".git/objects/dc/bd13c2c3f0c89c068e7496b9b87c63a2326235": "0f1e7e623729a29b3e3274cc47126688",
+".git/objects/e3/2747196115161cb3d52520637bdc593d6a38a1": "d50f467ae694b22c705ffbb5224595d9",
+".git/refs/heads/master": "62422b293a64a5cfb0e5cf916993147a",
 "assets/AssetManifest.json": "88941411bdf55c43ccb7281428e54652",
 "assets/assets/fonts/Poppins-Regular.ttf": "8b6af8e5e8324edfd77af8b3b35d7f9c",
 "assets/assets/images/background.png": "dbd15e07821e13baa0814be9814c3ee0",
@@ -31,15 +44,15 @@ const RESOURCES = {
 "assets/assets/images/virus.png": "bfbf6f56ed6350e51156698abf5c708b",
 "assets/assets/images/wordbackground.png": "fbdc256dfa15a5580f6a6077a9931045",
 "assets/FontManifest.json": "951c316f84a757c082de1835fcd705de",
-"assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
-"assets/NOTICES": "3feecb96de35f46f710be51875dc7a8e",
+"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
+"assets/NOTICES": "36aedf706e17d9798a7c121b94a1ffca",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"index.html": "490763ac3e02c65790d5df17cd737f1a",
-"/": "490763ac3e02c65790d5df17cd737f1a",
-"main.dart.js": "375fd2e25203d9cb963a053327cdba9f",
+"index.html": "d62cbbb6980ba61aea287af5016a7de1",
+"/": "d62cbbb6980ba61aea287af5016a7de1",
+"main.dart.js": "6a9745ca1f4950d5a1ff9b63145b0cb7",
 "manifest.json": "be6088e5272227acda815a0ae15ab2f0",
 "version.json": "33ca8bddb6185792f23fc30bab48e98a"
 };
@@ -59,7 +72,7 @@ self.addEventListener("install", (event) => {
   return event.waitUntil(
     caches.open(TEMP).then((cache) => {
       return cache.addAll(
-        CORE.map((value) => new Request(value + '?revision=' + RESOURCES[value], {'cache': 'reload'})));
+        CORE.map((value) => new Request(value, {'cache': 'reload'})));
     })
   );
 });
